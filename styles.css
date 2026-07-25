@@ -585,7 +585,7 @@ section .desc {
 .photo-slot {
   position: relative;
   width: 100%;
-  max-width: 360px;
+  max-width: 220px;
   aspect-ratio: 9 / 20;
   background: #ffffff;
   border: 1px solid var(--line);
@@ -595,7 +595,7 @@ section .desc {
 }
 
 .photo-slot.wide {
-  max-width: 100%;
+  max-width: 480px;
   aspect-ratio: 4 / 5;
 }
 
@@ -1152,20 +1152,48 @@ footer .foot-brand {
 @media (max-width: 700px) {
   .nav-toggle-btn {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 5px;
-    width: 32px;
-    height: 32px;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 4px;
     cursor: pointer;
   }
-  .nav-toggle-btn span {
+  .nav-toggle-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 22px;
+    height: 22px;
+  }
+  .nav-toggle-icon span {
     display: block;
     width: 100%;
     height: 2px;
     background: var(--ink);
     border-radius: 1px;
+  }
+  .nav-toggle-text {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .lineup-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .lineup-thumb {
+    order: 1;
+    width: 84px;
+    height: 110px;
+  }
+  .lineup-item .badge {
+    order: 2;
+    margin-top: 10px;
+  }
+  .lineup-item .body {
+    order: 3;
+    width: 100%;
+    margin-top: 10px;
   }
   header {
     position: sticky;
