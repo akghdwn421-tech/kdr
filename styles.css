@@ -43,6 +43,35 @@ a { color: inherit; }
 
 img { max-width: 100%; }
 
+.mobile-quicknav {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .mobile-quicknav {
+    display: flex;
+    overflow-x: auto;
+    background: var(--ink);
+    scrollbar-width: none;
+  }
+  .mobile-quicknav::-webkit-scrollbar {
+    display: none;
+  }
+  .mobile-quicknav a {
+    flex-shrink: 0;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .mobile-quicknav a.active {
+    color: #ffffff;
+    background: var(--gold);
+  }
+}
+
 /* ===== 헤더 / 내비게이션 ===== */
 header {
   position: sticky;
