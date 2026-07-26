@@ -1,0 +1,86 @@
+[사진 넣는 방법]
+
+이 폴더(images) 안에 아래 파일명 그대로 사진 파일을 넣어주시면,
+해당 페이지에 자동으로 사진이 나타납니다. (다른 작업 필요 없음, 새로고침만 하면 됨)
+
+파일명은 반드시 아래와 완전히 동일해야 합니다 (대소문자 포함).
+확장자가 다르면(.png, .jpeg 등) 저에게 말씀해주시면 코드를 맞춰드릴게요.
+
+
+===== 1. 각 케어 카테고리 페이지 상단 사진 (7장, 무드/분위기 사진) =====
+보내주신 예시 이미지(돌탑, 꽃, 잔디밭 등)처럼 감성적인 사진이 좋습니다.
+
+- products-overview.jpg   → 제품안내 첫 화면 대표 사진
+- care-core.jpg           → 척추케어 상단
+- care-exercise.jpg       → 운동케어 상단
+- care-recover.jpg        → 휴식케어 상단
+- care-beauty.jpg         → 뷰티케어 상단
+- care-circulation.jpg    → 순환케어 상단
+- care-energy.jpg         → 에너지케어 상단
+- care-mindset.jpg        → 정신케어 상단
+
+
+===== 2. 제품별 사진 (18장, 실제 제품 컷) =====
+
+[척추케어 - 마스터 컬렉션]
+- master-v11.jpg
+- master-v9.jpg
+- master-v7.jpg
+- master-v6.png   (완료 - 이미 넣어둠)
+- master-v5.jpg
+
+[휴식케어 - 파우제 컬렉션 외]
+- pause-m10.jpg
+- pause-m8fit.jpg
+- pause-m6.jpg
+- reflax-sofabed.jpg   (출시 예정 제품)
+
+[뷰티케어]
+- medispa-allinone.jpg (출시 예정 제품)
+- rayd.jpg
+- cellunic.jpg
+
+[순환케어 - 셀트론]
+- celltron-chair.jpg
+- celltron-e2.jpg
+
+[운동케어]
+- innerfit.jpg
+- youridm-s.jpg
+
+[에너지케어]
+- balance-aqua.jpg
+- ceramate-nk7.jpg
+
+[정신케어]
+- mindfit.jpg
+
+
+===== 3. 도입사례 사진 (업종별 5장씩, 총 25장) =====
+카테고리당 사진을 최대 5장까지 나란히 보여주는 갤러리 형태입니다.
+5장을 다 못 채우셔도 되고, 채운 만큼만 자동으로 표시됩니다.
+
+[기업]
+- case-corporate-1.jpg ~ case-corporate-5.jpg
+
+[시니어]
+- case-senior-1.jpg ~ case-senior-5.jpg
+
+[호텔]
+- case-hotel-1.jpg ~ case-hotel-5.jpg
+
+[산후조리원]
+- case-postpartum-1.jpg ~ case-postpartum-5.jpg
+
+[소상공인]
+- case-soho-1.jpg ~ case-soho-5.jpg
+  (case-soho-1.jpg, case-soho-2.jpg는 완료 - 이미 넣어둠, 사랑방미용실)
+
+갤러리 사진은 정사각형(1:1)에 가깝게 잘라주시면 깔끔하게 보입니다.
+
+
+===== 참고 =====
+- 사진은 가로로 긴 형태(16:9 ~ 16:7 비율)가 상단 무드 사진에 잘 맞습니다.
+- 제품 사진은 정사각형에 가까운 비율이 잘 맞습니다 (제품이 가운데 오도록).
+- 잘라서 주실 때 배경이 없는(투명 처리된) 제품 컷이면 더 깔끔하게 보입니다.
+- 이 안내문 파일은 나중에 지우셔도 됩니다.
