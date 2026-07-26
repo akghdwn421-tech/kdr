@@ -14,6 +14,7 @@
 <meta property="og:url" content="https://klduru.com/">
 <meta property="og:image" content="https://klduru.com/images/products-overview.png">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/static/pretendard.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -56,6 +57,163 @@
   ]
 }
 </script>
+<style>
+  .ah-hero {
+    position: relative;
+    height: 100vh;
+    min-height: 640px;
+    overflow: hidden;
+    background: #0a0a0b;
+    color: #fff;
+  }
+
+  .ah-bg {
+    position: absolute;
+    inset: 0;
+    background: #0f0f10;
+    overflow: hidden;
+  }
+
+  .ah-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 42%;
+    transform: scale(1.08);
+    transform-origin: center;
+    will-change: transform;
+  }
+
+  .ah-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(180deg, rgba(6,6,7,0.6) 0%, rgba(6,6,7,0.28) 32%, rgba(6,6,7,0.42) 62%, rgba(6,6,7,0.8) 100%);
+  }
+
+  .ah-stage {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 24px;
+  }
+
+  /* 헤드라인 · 클로징 두 문구가 하나의 타이포 시스템으로 보이도록 폰트·크기·자간을 통일 */
+  .ah-headline,
+  .ah-final-1,
+  .ah-final-2 {
+    margin: 0;
+    font-weight: 700;
+    font-size: clamp(27px, 3.8vw, 47px);
+    letter-spacing: -0.5px;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(26px);
+    filter: blur(10px);
+  }
+
+  .ah-headline { max-width: 18ch; }
+
+  /* 종료부 클로징 카피 — 화면 정중앙에 고정 배치 */
+  .ah-closing {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .ah-final-1-wrap,
+  .ah-final-2-wrap {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 640px;
+    padding: 0 24px;
+    text-align: center;
+  }
+
+  .ah-final-1,
+  .ah-final-2 {
+    color: #f6f1e7;
+  }
+
+  /* 공식 사이트 헤더 로고(.brand .mark)와 동일하게 — 골드 대신 브랜드 레드 */
+  .ah-brand {
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--gold);
+  }
+
+  /* 텍스트와 버튼 사이, 은은한 흰색 룰선 */
+  .ah-final-2-divider {
+    width: 48px;
+    height: 1px;
+    margin: 28px auto 0;
+    background: rgba(246,241,231,0.5);
+    transform: scaleX(0);
+  }
+
+  .ah-closing .ah-cta {
+    margin-top: 26px;
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(6px);
+  }
+
+  /* 정중앙에서 한 줄 카피가 통째로 등장하는 프리미엄 리빌 — 양옆 가는 룰선이 함께 펼쳐진다 */
+  .ah-word-stage {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    padding: 0 24px;
+  }
+
+  .ah-word {
+    margin: 0;
+    font-size: clamp(15px, 2.1vw, 21px);
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    color: rgba(255,255,255,0.88);
+    white-space: nowrap;
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(10px) scale(0.98);
+  }
+
+  .ah-word-rule {
+    height: 1px;
+    width: 60px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55));
+    transform: scaleX(0);
+    flex: 0 0 auto;
+  }
+
+  .ah-word-rule-l { transform-origin: right center; }
+  .ah-word-rule-r {
+    transform-origin: left center;
+    background: linear-gradient(90deg, rgba(255,255,255,0.55), transparent);
+  }
+
+  @media (max-width: 767px) {
+    .ah-hero { height: 92vh; min-height: 560px; }
+    .ah-word { font-size: 11.5px; white-space: normal; text-align: center; letter-spacing: 0.06em; max-width: 300px; }
+    .ah-word-rule { display: none; }
+  }
+</style>
 </head>
 
 <body>
@@ -113,27 +271,35 @@
   </div>
 
   <!-- 히어로 -->
-  <div class="hero">
-    <div class="wrap">
-      <span class="eyebrow">세라젬 공식 B2B 파트너사</span>
-      <h1>가장 합리적인 기준으로<br>세라젬을 만나는 방법<br><span>KDR</span></h1>
-      <p class="lead">
-        세라젬 본사 출신으로 기업, 공공기관, 조합·단체, 그리고 개인을 위한<br>
-        맞춤형 솔루션을 제공하는 세라젬 공식 파트너사입니다.<br>
-        세라젬을 가장 합리적인 조건과 투명한 견적으로 상담해 드립니다.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="support.html#contact">상담 신청</a>
-        <a class="btn btn-ghost" href="service.html">서비스 살펴보기</a>
+  <section class="ah-hero" id="ahHero">
+    <div class="ah-bg">
+      <img src="images/배경사진.png" alt="" class="ah-bg-img" id="ahBgImg">
+    </div>
+    <div class="ah-scrim"></div>
+
+    <div class="ah-stage">
+      <p class="ah-headline" id="ahHeadline">세라젬을 가장 현명하게 구매하는 방법</p>
+
+      <div class="ah-closing" id="ahClosing">
+        <div class="ah-final-1-wrap">
+          <p class="ah-final-1">세라젬,<br>어떻게 사는가도 중요합니다.</p>
+        </div>
+        <div class="ah-final-2-wrap">
+          <p class="ah-final-2"><span class="ah-brand">KDR</span>이<br>가장 합리적인 솔루션을<br>약속드립니다.</p>
+          <div class="ah-final-2-divider" id="ahDivider"></div>
+          <div class="ah-cta" id="ahCtaClosing">
+            <a class="btn btn-primary" href="support.html#contact">상담 신청하기</a>
+          </div>
+        </div>
       </div>
-      <div class="trust-bar">
-        <div class="item">세라젬 사업자 할인 상담</div>
-        <div class="item">세라젬 임직원 복지몰 코드</div>
-        <div class="item">세라젬 대량구매·렌탈 안내</div>
-        <div class="item">세라젬 본사 공식 파트너</div>
+
+      <div class="ah-word-stage" id="ahWordStage">
+        <div class="ah-word-rule ah-word-rule-l"></div>
+        <p class="ah-word" id="ahWord"></p>
+        <div class="ah-word-rule ah-word-rule-r"></div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- 바로가기 카드 -->
   <section class="bg-card">
@@ -222,6 +388,80 @@
     <div>김해사무실 경상남도 김해시 율하7로 26 4층 · 010-3697-4133</div>
     <div style="margin-top:10px;">&copy; 2026 클두루(KDR). All rights reserved.</div>
   </footer>
+
+  <script>
+  // 상단 고정 헤더 높이만큼 히어로를 줄여서, 히어로의 세로 중앙이 실제 화면(첫 로드 시 보이는 영역)의
+  // 정중앙과 정확히 일치하도록 맞춘다. (헤더 높이만큼 안 빼면 중앙 정렬 텍스트가 실제로는 아래로 치우쳐 보인다)
+  (function () {
+    var hero = document.getElementById('ahHero');
+    var header = document.querySelector('header');
+    if (!hero || !header) return;
+    function fitHero() {
+      hero.style.height = 'calc(100vh - ' + header.offsetHeight + 'px)';
+    }
+    fitHero();
+    window.addEventListener('resize', fitHero);
+  })();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script>
+  (function () {
+    if (typeof gsap === 'undefined') return;
+
+    // ── 배경 카메라 줌: 훨씬 과감하고 혁신적으로 느껴지는 줌인 (ease: none, 흔들림 없이 일정한 속도) ──
+    // 클로징 화면에서는 계속 움직이면 어지러우므로, 그때는 멈춘다.
+    var bgZoom = gsap.to('#ahBgImg', {
+      scale: 1.34,
+      duration: 10,
+      ease: 'none',
+      yoyo: true,
+      repeat: -1
+    });
+
+    // ── 메인 내러티브 타임라인: 한 번에 하나씩만 보여주고, 최초 1회만 재생 후 정지 ──
+    // (무한 반복은 CTA 클릭을 방해하고 산만하므로 사용하지 않는다)
+    var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+    // 0~1s : 핵심 메시지(헤드라인) 하나만, 가장 먼저 안착시킨다
+    tl.to('#ahHeadline', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.0 }, 0)
+
+      // 2.4s : 헤드라인이 사라진다
+      .to('#ahHeadline', { opacity: 0, filter: 'blur(8px)', duration: 0.8 }, 2.4);
+
+    // ── 프리미엄 리빌: 구매자 유형 5개를 한 줄로 동시에, 분석 3개도 한 줄로 동시에 보여준다 ──
+    var wordEl = document.getElementById('ahWord');
+    var ruleEls = document.querySelectorAll('.ah-word-rule');
+    var groups = [
+      ['개인', '개인사업자', '법인사업자', '기관', '제휴사 임직원'].join('  ·  '),
+      ['구매자 유형 분석', '프로모션 분석', '니즈 분석'].join('  ·  ')
+    ];
+
+    var IN = 0.7, HOLD = 1.6, OUT = 0.5, GAP = 0.3;
+    var t = 3.6;
+    groups.forEach(function (line) {
+      tl.call(function () { wordEl.textContent = line; }, [], t)
+        .to(wordEl, { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: IN }, t)
+        .to(ruleEls, { scaleX: 1, duration: IN }, t)
+        .to(wordEl, { opacity: 0, y: -10, scale: 0.98, filter: 'blur(8px)', duration: OUT }, t + IN + HOLD)
+        .to(ruleEls, { scaleX: 0, duration: OUT }, t + IN + HOLD);
+
+      t += IN + HOLD + OUT + GAP;
+    });
+
+    // ── 클로징: 첫 문장이 나타났다 사라지고, 그 자리에서 두 번째 문장 + CTA로 넘어가 완전히 정지한다 ──
+    var closingStart = t + 0.3;
+    tl.set('#ahClosing', { pointerEvents: 'auto' }, closingStart)
+      .call(function () { bgZoom.pause(); }, [], closingStart)
+      .to('#ahClosing', { opacity: 1, duration: 0.6 }, closingStart)
+      .to('.ah-final-1', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.1 }, closingStart + 0.4)
+      .to('.ah-final-1', { opacity: 0, filter: 'blur(8px)', duration: 0.8 }, closingStart + 3.0)
+      .to('.ah-final-2', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.1 }, closingStart + 4.0)
+      .to('#ahDivider', { scaleX: 1, duration: 0.9 }, closingStart + 4.6)
+      .to('#ahClosing .ah-cta', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.0 }, closingStart + 4.7);
+      // 타임라인은 여기서 자연스럽게 멈춘다 — 슬로건과 CTA, 배경이 흔들림 없이 고정된다.
+  })();
+  </script>
 
 </body>
 </html>
