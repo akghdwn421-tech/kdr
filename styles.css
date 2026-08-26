@@ -701,17 +701,23 @@ section .desc {
 
 .case-gallery {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
 .case-thumb {
   position: relative;
   aspect-ratio: 4 / 3;
-  border-radius: 2px;
+  border-radius: 4px;
   overflow: hidden;
   background: var(--bg-alt);
   border: 1px solid var(--line);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.case-thumb:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(15, 17, 21, 0.14);
 }
 
 .case-thumb img {
@@ -723,6 +729,22 @@ section .desc {
   display: block;
 }
 
+/* 사진 3장이 합쳐진 스트립 이미지 — 잘리지 않게 전폭으로 */
+.case-thumb.wide {
+  grid-column: 1 / -1;
+  aspect-ratio: auto;
+}
+
+.case-thumb.wide:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.case-thumb.wide img {
+  height: auto;
+  object-fit: contain;
+}
+
 .case-thumb .ph-empty {
   z-index: 2;
   display: none;
@@ -732,13 +754,26 @@ section .desc {
   justify-content: center;
   text-align: center;
   padding: 4px;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.3;
   color: var(--muted);
 }
 
 .case-thumb.empty .ph-empty {
   display: flex;
+}
+
+@media (max-width: 860px) {
+  .case-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 520px) {
+  .case-gallery {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ===== CERAGEM 7가지 케어 (제품안내 히어로) ===== */
@@ -1167,15 +1202,6 @@ footer .foot-brand {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
-  }
-  .case-gallery {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .case-gallery {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
