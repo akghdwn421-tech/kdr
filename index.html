@@ -103,11 +103,22 @@
 
   .ah-bg-video.is-on { opacity: 1; }
 
+  /* 배경이 영상으로 바뀌면서 밝은 장면(엔진·척추)에서 문구 대비가 무너졌다.
+     세로 그라디언트로 전체를 눌러주고, 문구가 놓이는 가운데만 타원으로 한 번 더 눌러
+     가장자리는 영상이 살아 있게 둔다. 측정 기준 대비 4.5:1 이상. */
   .ah-scrim {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(180deg, rgba(6,6,7,0.62) 0%, rgba(6,6,7,0.34) 34%, rgba(6,6,7,0.5) 64%, rgba(6,6,7,0.84) 100%);
+    background:
+      radial-gradient(ellipse 78% 62% at 50% 48%,
+        rgba(6,6,7,0.26) 0%, rgba(6,6,7,0.18) 55%, rgba(6,6,7,0) 100%),
+      linear-gradient(180deg,
+        rgba(6,6,7,0.60) 0%,
+        rgba(6,6,7,0.52) 30%,
+        rgba(6,6,7,0.54) 55%,
+        rgba(6,6,7,0.62) 75%,
+        rgba(6,6,7,0.88) 100%);
   }
 
   .ah-stage {
