@@ -66,18 +66,14 @@
   .ah-hero {
     position: relative;
     height: 100vh;
-    min-height: 640px;
+    height: 100svh;              /* 모바일 주소창 때문에 CTA가 밀리지 않도록 */
+    min-height: 620px;
     overflow: hidden;
     background: #0a0a0b;
     color: #fff;
   }
 
-  .ah-bg {
-    position: absolute;
-    inset: 0;
-    background: #0f0f10;
-    overflow: hidden;
-  }
+  .ah-bg { position: absolute; inset: 0; background: #0f0f10; overflow: hidden; }
 
   .ah-bg-img {
     position: absolute;
@@ -86,17 +82,15 @@
     height: 100%;
     object-fit: cover;
     object-position: center 42%;
-    transform: scale(1.08);
+    transform: scale(1.04);
     transform-origin: center;
-    will-change: transform;
   }
 
   .ah-scrim {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background:
-      linear-gradient(180deg, rgba(6,6,7,0.6) 0%, rgba(6,6,7,0.28) 32%, rgba(6,6,7,0.42) 62%, rgba(6,6,7,0.8) 100%);
+    background: linear-gradient(180deg, rgba(6,6,7,0.62) 0%, rgba(6,6,7,0.34) 34%, rgba(6,6,7,0.5) 64%, rgba(6,6,7,0.84) 100%);
   }
 
   .ah-stage {
@@ -111,112 +105,106 @@
     padding: 0 24px;
   }
 
-  /* 헤드라인 · 클로징 두 문구가 하나의 타이포 시스템으로 보이도록 폰트·크기·자간을 통일 */
-  .ah-headline,
-  .ah-final-1,
-  .ah-final-2 {
+  /* 기본값은 '보이는 상태'. GSAP이 없어도 히어로가 정상 표시된다. */
+  .ah-eyebrow {
+    margin: 0 0 18px;
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    color: rgba(255,255,255,0.82);
+  }
+
+  .ah-headline {
     margin: 0;
     font-weight: 700;
     font-size: clamp(29px, 3.9vw, 50px);
     letter-spacing: -0.5px;
-    line-height: 1.4;
-    opacity: 0;
-    transform: translateY(26px);
-    filter: blur(10px);
-  }
-
-  .ah-headline { max-width: 18ch; }
-
-  /* 종료부 클로징 카피 — 화면 정중앙에 고정 배치 */
-  .ah-closing {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .ah-final-1-wrap,
-  .ah-final-2-wrap {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    max-width: 640px;
-    padding: 0 24px;
-    text-align: center;
-  }
-
-  .ah-final-1,
-  .ah-final-2 {
+    line-height: 1.35;
     color: #f6f1e7;
   }
 
-  /* 공식 사이트 헤더 로고(.brand .mark)와 동일하게 — 골드 대신 브랜드 레드 */
-  .ah-brand {
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    color: var(--gold);
+  .ah-sub {
+    margin: 18px 0 0;
+    font-size: clamp(16.5px, 1.5vw, 20px);
+    font-weight: 500;
+    line-height: 1.6;
+    color: rgba(246,241,231,0.92);
   }
 
-  /* 텍스트와 버튼 사이, 은은한 흰색 룰선 */
-  .ah-final-2-divider {
+  .ah-brand { font-weight: 800; letter-spacing: 0.04em; color: var(--gold); }
+
+  .ah-divider {
     width: 48px;
     height: 1px;
     margin: 28px auto 0;
     background: rgba(246,241,231,0.5);
-    transform: scaleX(0);
   }
 
-  .ah-closing .ah-cta {
+  .ah-cta {
     margin-top: 26px;
-    opacity: 0;
-    transform: translateY(20px);
-    filter: blur(6px);
-  }
-
-  /* 정중앙에서 한 줄 카피가 통째로 등장하는 프리미엄 리빌 — 양옆 가는 룰선이 함께 펼쳐진다 */
-  .ah-word-stage {
-    position: absolute;
-    inset: 0;
     display: flex;
-    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 22px;
-    padding: 0 24px;
   }
 
-  .ah-word {
-    margin: 0;
-    font-size: clamp(16.5px, 2.2vw, 23px);
+  .btn-hero-ghost {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(4px);
+  }
+
+  .btn-hero-ghost:hover {
+    background: #ffffff;
+    color: var(--ink);
+    border-color: #ffffff;
+    transform: translateY(-1px);
+  }
+
+  /* 사라지던 문구를 상시 노출로 — 스크롤해도 놓치지 않는다 */
+  .ah-tags {
+    margin-top: 34px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 13.5px;
     font-weight: 500;
-    letter-spacing: 0.09em;
-    color: rgba(255,255,255,0.88);
-    white-space: nowrap;
-    opacity: 0;
-    filter: blur(12px);
-    transform: translateY(10px) scale(0.98);
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.74);
   }
 
-  .ah-word-rule {
-    height: 1px;
-    width: 60px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55));
-    transform: scaleX(0);
-    flex: 0 0 auto;
-  }
-
-  .ah-word-rule-l { transform-origin: right center; }
-  .ah-word-rule-r {
-    transform-origin: left center;
-    background: linear-gradient(90deg, rgba(255,255,255,0.55), transparent);
-  }
+  /* GSAP이 로드된 경우에만 등장 애니메이션을 얹는다 (없으면 위 기본값 그대로 보임) */
+  .ah-anim .ah-eyebrow,
+  .ah-anim .ah-headline,
+  .ah-anim .ah-sub,
+  .ah-anim .ah-cta,
+  .ah-anim .ah-tags { opacity: 0; transform: translateY(16px); }
+  .ah-anim .ah-divider { transform: scaleX(0); }
 
   @media (max-width: 767px) {
-    .ah-hero { height: 92vh; min-height: 560px; }
-    .ah-word { font-size: 13px; white-space: normal; text-align: center; letter-spacing: 0.06em; max-width: 300px; }
-    .ah-word-rule { display: none; }
+    .ah-hero { min-height: 560px; }
+    .ah-eyebrow { font-size: 12.5px; letter-spacing: 0.1em; margin-bottom: 14px; }
+    .ah-tags { font-size: 12px; margin-top: 26px; letter-spacing: 0.02em; }
+    .ah-cta .btn { padding: 13px 22px; font-size: 15px; }
+  }
+
+  /* 세로가 짧은 기기에서도 CTA와 하단 문구가 한 화면에 들어오도록 여백 압축 */
+  @media (max-height: 700px) {
+    .ah-eyebrow { margin-bottom: 10px; }
+    .ah-sub { margin-top: 12px; }
+    .ah-divider { margin-top: 18px; }
+    .ah-cta { margin-top: 18px; }
+    .ah-tags { margin-top: 18px; gap: 5px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ah-anim .ah-eyebrow,
+    .ah-anim .ah-headline,
+    .ah-anim .ah-sub,
+    .ah-anim .ah-cta,
+    .ah-anim .ah-tags { opacity: 1; transform: none; }
+    .ah-anim .ah-divider { transform: scaleX(1); }
   }
 </style>
 <!-- Google tag (gtag.js) -->
@@ -286,53 +274,27 @@
   <!-- 히어로 -->
   <section class="ah-hero" id="ahHero">
     <div class="ah-bg">
-      <img src="images/배경사진.png" alt="" class="ah-bg-img" id="ahBgImg">
+      <img src="images/hero-bg.jpg" alt="" class="ah-bg-img" id="ahBgImg" width="1200" height="867" fetchpriority="high" decoding="async">
     </div>
     <div class="ah-scrim"></div>
 
     <div class="ah-stage">
-      <p class="ah-headline" id="ahHeadline">세라젬을 가장 현명하게 구매하는 방법</p>
+      <p class="ah-eyebrow">세라젬을 가장 현명하게 구매하는 방법</p>
 
-      <div class="ah-closing" id="ahClosing">
-        <div class="ah-final-1-wrap">
-          <p class="ah-final-1">세라젬,<br>어떻게 사는가도 중요합니다.</p>
-        </div>
-        <div class="ah-final-2-wrap">
-          <p class="ah-final-2"><span class="ah-brand">KDR</span>이<br>가장 합리적인 솔루션을<br>약속드립니다.</p>
-          <div class="ah-final-2-divider" id="ahDivider"></div>
-          <div class="ah-cta" id="ahCtaClosing">
-            <a class="btn btn-primary" href="support.html#contact">상담 신청하기</a>
-          </div>
-        </div>
+      <h1 class="ah-headline">세라젬,<br>어떻게 사는가도 중요합니다.</h1>
+
+      <p class="ah-sub"><span class="ah-brand">KDR</span>이 가장 합리적인 솔루션을 약속드립니다.</p>
+
+      <div class="ah-divider"></div>
+
+      <div class="ah-cta">
+        <a class="btn btn-primary" href="support.html#contact">상담 신청하기</a>
+        <a class="btn btn-hero-ghost" href="https://pf.kakao.com/_xixfgSX/chat" target="_blank" rel="noopener noreferrer">카카오톡 문의</a>
       </div>
 
-      <div class="ah-word-stage" id="ahWordStage">
-        <div class="ah-word-rule ah-word-rule-l"></div>
-        <p class="ah-word" id="ahWord"></p>
-        <div class="ah-word-rule ah-word-rule-r"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 핵심 강점 -->
-  <section class="home-strength">
-    <div class="wrap">
-      <div class="home-points">
-        <div class="hp">
-          <span class="n">01</span>
-          <div class="t">본사 직속 출신의 현장 전문성</div>
-          <div class="d">홈체험(B2C) · 영업팀장 · B2B까지 두루 거친 실무 경험</div>
-        </div>
-        <div class="hp">
-          <span class="n">02</span>
-          <div class="t">소량 도입도 대량 조건 혜택</div>
-          <div class="d">대량 조건에만 적용되는 혜택을 소량 도입 시에도 유리하게 적용</div>
-        </div>
-        <div class="hp">
-          <span class="n">03</span>
-          <div class="t">폭넓은 공식 구매 채널</div>
-          <div class="d">B2B/B2G 납품, 임직원 비즈몰 코드, 조합·단체 직매입까지 지원</div>
-        </div>
+      <div class="ah-tags">
+        <span>개인 · 개인사업자 · 법인사업자 · 기관 · 제휴사 임직원</span>
+        <span>구매자 유형 분석 · 프로모션 분석 · 니즈 분석</span>
       </div>
     </div>
   </section>
@@ -440,63 +402,30 @@
   })();
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
   <script>
-  (function () {
+  // 히어로는 CSS만으로 이미 완성된 상태로 보인다.
+  // GSAP이 실제로 로드됐을 때만 .ah-anim 을 붙여 등장 애니메이션을 얹는 방식(점진적 향상).
+  // CDN이 막히거나 느려도 문구와 버튼은 그대로 노출된다.
+  window.addEventListener('load', function () {
     if (typeof gsap === 'undefined') return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    // ── 배경 카메라 줌: 훨씬 과감하고 혁신적으로 느껴지는 줌인 (ease: none, 흔들림 없이 일정한 속도) ──
-    // 클로징 화면에서는 계속 움직이면 어지러우므로, 그때는 멈춘다.
-    var bgZoom = gsap.to('#ahBgImg', {
-      scale: 1.34,
-      duration: 10,
-      ease: 'none',
-      yoyo: true,
-      repeat: -1
-    });
+    var hero = document.getElementById('ahHero');
+    hero.classList.add('ah-anim');
 
-    // ── 메인 내러티브 타임라인: 한 번에 하나씩만 보여주고, 최초 1회만 재생 후 정지 ──
-    // (무한 반복은 CTA 클릭을 방해하고 산만하므로 사용하지 않는다)
-    var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    var tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.7 } });
+    tl.to('.ah-eyebrow',  { opacity: 1, y: 0 }, 0)
+      .to('.ah-headline', { opacity: 1, y: 0 }, 0.12)
+      .to('.ah-sub',      { opacity: 1, y: 0 }, 0.26)
+      .to('.ah-divider',  { scaleX: 1, duration: 0.6 }, 0.38)
+      .to('.ah-cta',      { opacity: 1, y: 0 }, 0.46)
+      .to('.ah-tags',     { opacity: 1, y: 0 }, 0.6);
+    // 0.7초면 전체 등장이 끝난다. CTA는 1.2초 안에 완전히 눌린다.
 
-    // 0~1s : 핵심 메시지(헤드라인) 하나만, 가장 먼저 안착시킨다
-    tl.to('#ahHeadline', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.0 }, 0)
-
-      // 2.4s : 헤드라인이 사라진다
-      .to('#ahHeadline', { opacity: 0, filter: 'blur(8px)', duration: 0.8 }, 2.4);
-
-    // ── 프리미엄 리빌: 구매자 유형 5개를 한 줄로 동시에, 분석 3개도 한 줄로 동시에 보여준다 ──
-    var wordEl = document.getElementById('ahWord');
-    var ruleEls = document.querySelectorAll('.ah-word-rule');
-    var groups = [
-      ['개인', '개인사업자', '법인사업자', '기관', '제휴사 임직원'].join('  ·  '),
-      ['구매자 유형 분석', '프로모션 분석', '니즈 분석'].join('  ·  ')
-    ];
-
-    var IN = 0.7, HOLD = 1.6, OUT = 0.5, GAP = 0.3;
-    var t = 3.6;
-    groups.forEach(function (line) {
-      tl.call(function () { wordEl.textContent = line; }, [], t)
-        .to(wordEl, { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: IN }, t)
-        .to(ruleEls, { scaleX: 1, duration: IN }, t)
-        .to(wordEl, { opacity: 0, y: -10, scale: 0.98, filter: 'blur(8px)', duration: OUT }, t + IN + HOLD)
-        .to(ruleEls, { scaleX: 0, duration: OUT }, t + IN + HOLD);
-
-      t += IN + HOLD + OUT + GAP;
-    });
-
-    // ── 클로징: 첫 문장이 나타났다 사라지고, 그 자리에서 두 번째 문장 + CTA로 넘어가 완전히 정지한다 ──
-    var closingStart = t + 0.3;
-    tl.set('#ahClosing', { pointerEvents: 'auto' }, closingStart)
-      .call(function () { bgZoom.pause(); }, [], closingStart)
-      .to('#ahClosing', { opacity: 1, duration: 0.6 }, closingStart)
-      .to('.ah-final-1', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.1 }, closingStart + 0.4)
-      .to('.ah-final-1', { opacity: 0, filter: 'blur(8px)', duration: 0.8 }, closingStart + 3.0)
-      .to('.ah-final-2', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.1 }, closingStart + 4.0)
-      .to('#ahDivider', { scaleX: 1, duration: 0.9 }, closingStart + 4.6)
-      .to('#ahClosing .ah-cta', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.0 }, closingStart + 4.7);
-      // 타임라인은 여기서 자연스럽게 멈춘다 — 슬로건과 CTA, 배경이 흔들림 없이 고정된다.
-  })();
+    // 배경은 아주 약하게만 — 산만하지 않고 저사양 기기에서도 부담이 없다
+    gsap.to('#ahBgImg', { scale: 1.1, duration: 18, ease: 'none', yoyo: true, repeat: -1 });
+  });
   </script>
 
 
