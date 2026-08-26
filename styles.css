@@ -1374,3 +1374,55 @@ footer .foot-brand {
 @media print {
   .kakao-fab { display: none; }
 }
+
+/* ===== 홈 핵심 강점 띠 ===== */
+.home-strength {
+  padding: 46px 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.home-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.home-points .hp {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 22px 24px;
+}
+
+.home-points .n {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.home-points .t {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.home-points .d {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+@media (max-width: 860px) {
+  .home-strength {
+    padding: 34px 0;
+  }
+  .home-points {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
