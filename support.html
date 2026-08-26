@@ -9,7 +9,9 @@
 <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/static/pretendard.css">
+<link rel="preload" as="font" type="font/woff2" href="fonts/woff2/Pretendard-Regular.subset.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/woff2/Pretendard-Bold.subset.woff2" crossorigin>
+<link rel="stylesheet" href="fonts/pretendard.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -60,7 +62,7 @@
       "name": "상담은 어떻게 진행되나요?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "신청서 작성 또는 전화·이메일로 문의 주시면, 도입 목적과 상황에 맞춰 순서대로 연락드립니다. 물론 사무실에서 오프라인 상담도 가능합니다."
+        "text": "카카오톡·전화·이메일로 문의 주시면, 도입 목적과 상황에 맞춰 순서대로 연락드립니다. 물론 사무실에서 오프라인 상담도 가능합니다."
       }
     },
     {
@@ -220,7 +222,7 @@
         <div class="lineup-item">
           <div>
             <div class="name">상담은 어떻게 진행되나요?</div>
-            <div class="desc">신청서 작성 또는 전화·이메일로 문의 주시면, 도입 목적과 상황에 맞춰 순서대로 연락드립니다. 물론 사무실에서 오프라인 상담도 가능합니다.</div>
+            <div class="desc">카카오톡·전화·이메일로 문의 주시면, 도입 목적과 상황에 맞춰 순서대로 연락드립니다. 물론 사무실에서 오프라인 상담도 가능합니다.</div>
           </div>
         </div>
         <div class="lineup-item">
@@ -248,8 +250,8 @@
       </div>
       <div class="contact-box">
         <div class="contact-item full">
-          <div class="label">온라인 신청</div>
-          <div class="value">신청서를 작성해 주시면 순서대로 연락드립니다</div>
+          <div class="label">카카오톡 문의</div>
+          <div class="value">카카오톡 채널로 문의 주시면 순서대로 답변드립니다</div>
         </div>
         <div class="contact-item">
           <div class="label">전화</div>
@@ -269,7 +271,7 @@
           <div class="value">평일 09:00 - 18:00</div>
         </div>
         <div class="contact-cta">
-          <a class="btn btn-primary" href="https://naver.me/GmprljxI" target="_blank" rel="noopener noreferrer">신청서 작성하기</a>
+          <a class="btn btn-primary btn-kakao" href="https://pf.kakao.com/_xixfgSX/chat" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.99 3 3 6.2 3 10.14c0 2.5 1.65 4.7 4.13 5.96l-.9 3.3c-.09.32.27.58.55.4l3.96-2.6c.41.04.83.06 1.26.06 5.01 0 9-3.2 9-7.12S17.01 3 12 3Z"></path></svg>카카오톡 문의</a>
           <a class="btn btn-ghost" href="tel:010-3697-4133">전화 상담</a>
           <a class="btn btn-ghost" href="mailto:akghdwn0421@gmail.com">이메일 문의</a>
         </div>
@@ -284,6 +286,13 @@
     <div>김해사무실 경상남도 김해시 율하7로 26 4층 · 010-3697-4133</div>
     <div style="margin-top:10px;">&copy; 2026 클두루(KDR). All rights reserved.</div>
   </footer>
+
+
+<!-- 카카오톡 문의 플로팅 버튼 -->
+<a class="kakao-fab" href="https://pf.kakao.com/_xixfgSX/chat" target="_blank" rel="noopener noreferrer" aria-label="카카오톡으로 문의하기">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.99 3 3 6.2 3 10.14c0 2.5 1.65 4.7 4.13 5.96l-.9 3.3c-.09.32.27.58.55.4l3.96-2.6c.41.04.83.06 1.26.06 5.01 0 9-3.2 9-7.12S17.01 3 12 3Z"></path></svg>
+  <span class="kakao-fab-label">카카오톡 문의</span>
+</a>
 
 </body>
 </html>
