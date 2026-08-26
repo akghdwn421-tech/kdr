@@ -1317,59 +1317,57 @@ footer .foot-brand {
   flex-shrink: 0;
 }
 
-/* 우측 하단 플로팅 문의 버튼 */
+/* 우측 하단 플로팅 문의 버튼 — PC/모바일 모두 노출 */
 .kakao-fab {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
+  right: 20px;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
   z-index: 40;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 18px 12px 15px;
+  padding: 11px 17px 11px 14px;
   border-radius: 999px;
   background: #FEE500;
   color: #191600;
   font-size: 14.5px;
   font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
   text-decoration: none;
-  box-shadow: 0 4px 20px rgba(15, 17, 21, 0.22);
+  box-shadow: 0 4px 18px rgba(15, 17, 21, 0.2);
   transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
 }
 
 .kakao-fab:hover {
   background: #f2da00;
   transform: translateY(-2px);
-  box-shadow: 0 8px 26px rgba(15, 17, 21, 0.26);
+  box-shadow: 0 8px 24px rgba(15, 17, 21, 0.26);
 }
 
 .kakao-fab:active {
-  transform: scale(0.96);
+  transform: scale(0.97);
 }
 
 .kakao-fab svg {
-  width: 22px;
-  height: 22px;
+  width: 21px;
+  height: 21px;
   flex-shrink: 0;
 }
 
-/* 좁은 화면에서는 원형 아이콘 버튼으로 */
+/* 모바일: 스크롤에 방해되지 않게 더 작고 낮게 */
 @media (max-width: 700px) {
   .kakao-fab {
-    right: 16px;
-    bottom: 18px;
-    width: 56px;
-    height: 56px;
-    padding: 0;
-    justify-content: center;
-    gap: 0;
-  }
-  .kakao-fab .kakao-fab-label {
-    display: none;
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    gap: 6px;
+    padding: 8px 13px 8px 10px;
+    font-size: 12.5px;
+    box-shadow: 0 3px 12px rgba(15, 17, 21, 0.18);
   }
   .kakao-fab svg {
-    width: 28px;
-    height: 28px;
+    width: 17px;
+    height: 17px;
   }
 }
 
