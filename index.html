@@ -445,7 +445,10 @@
       var conn = navigator.connection || {};
       if (conn.saveData) return;
 
-      v.src = window.innerWidth >= 768 ? 'images/hero-loop.mp4' : 'images/hero-loop-sm.mp4';
+      // 영상을 갱신할 때는 ?v= 뒤 숫자를 올린다.
+      // 안 올리면 재방문자 브라우저가 예전 영상을 계속 재생한다.
+      var VER = '3';
+      v.src = (window.innerWidth >= 768 ? 'images/hero-loop.mp4' : 'images/hero-loop-sm.mp4') + '?v=' + VER;
       v.addEventListener('canplay', function () {
         var pr = v.play();
         if (pr && pr.catch) pr.catch(function () {});
