@@ -86,6 +86,23 @@
     transform-origin: center;
   }
 
+  /* 실사 → 엔진 → 척추 3장면이 순환하는 배경 영상.
+     재생 가능할 때만 사진 위로 서서히 덮는다. 실패하면 사진 그대로 남는다. */
+  .ah-bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.04);
+    opacity: 0;
+    transition: opacity 1.1s ease;
+    pointer-events: none;
+  }
+
+  .ah-bg-video.is-on { opacity: 1; }
+
   .ah-scrim {
     position: absolute;
     inset: 0;
@@ -275,6 +292,7 @@
   <section class="ah-hero" id="ahHero">
     <div class="ah-bg">
       <img src="images/hero-bg.jpg" alt="" class="ah-bg-img" id="ahBgImg" width="1200" height="867" fetchpriority="high" decoding="async">
+      <video class="ah-bg-video" id="ahBgVideo" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
     </div>
     <div class="ah-scrim"></div>
 
@@ -404,28 +422,57 @@
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
   <script>
-  // 히어로는 CSS만으로 이미 완성된 상태로 보인다.
-  // GSAP이 실제로 로드됐을 때만 .ah-anim 을 붙여 등장 애니메이션을 얹는 방식(점진적 향상).
-  // CDN이 막히거나 느려도 문구와 버튼은 그대로 노출된다.
-  window.addEventListener('load', function () {
-    if (typeof gsap === 'undefined') return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    var hero = document.getElementById('ahHero');
-    hero.classList.add('ah-anim');
+    // ── 배경 영상 ──────────────────────────────────────────────
+    // 사진이 먼저 깔리고, 영상이 재생 가능해지면 그 위로 서서히 덮는다.
+    // 데이터 절약 모드 · 모션 최소화 설정이면 영상을 아예 받지 않는다.
+    (function () {
+      var v = document.getElementById('ahBgVideo');
+      if (!v || reduce) return;
+      var conn = navigator.connection || {};
+      if (conn.saveData) return;
 
-    var tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.7 } });
-    tl.to('.ah-eyebrow',  { opacity: 1, y: 0 }, 0)
-      .to('.ah-headline', { opacity: 1, y: 0 }, 0.12)
-      .to('.ah-sub',      { opacity: 1, y: 0 }, 0.26)
-      .to('.ah-divider',  { scaleX: 1, duration: 0.6 }, 0.38)
-      .to('.ah-cta',      { opacity: 1, y: 0 }, 0.46)
-      .to('.ah-tags',     { opacity: 1, y: 0 }, 0.6);
-    // 0.7초면 전체 등장이 끝난다. CTA는 1.2초 안에 완전히 눌린다.
+      v.src = window.innerWidth >= 768 ? 'images/hero-loop.mp4' : 'images/hero-loop-sm.mp4';
+      v.addEventListener('canplay', function () {
+        var pr = v.play();
+        if (pr && pr.catch) pr.catch(function () {});
+        v.classList.add('is-on');
+      }, { once: true });
+      v.load();
+    })();
 
-    // 배경은 아주 약하게만 — 산만하지 않고 저사양 기기에서도 부담이 없다
-    gsap.to('#ahBgImg', { scale: 1.1, duration: 18, ease: 'none', yoyo: true, repeat: -1 });
-  });
+    // ── 히어로 문구 등장 ────────────────────────────────────────
+    // 문구와 버튼은 CSS만으로 이미 보이는 상태다.
+    // GSAP이 실제로 로드됐을 때만 .ah-anim 을 붙여 등장 연출을 얹는다.
+    var SEL = '.ah-eyebrow, .ah-headline, .ah-sub, .ah-cta, .ah-tags';
+    function revealNow() {
+      document.querySelectorAll(SEL).forEach(function (el) {
+        el.style.opacity = 1; el.style.transform = 'none';
+      });
+      var dv = document.querySelector('.ah-divider');
+      if (dv) dv.style.transform = 'scaleX(1)';
+    }
+
+    window.addEventListener('load', function () {
+      if (typeof gsap === 'undefined' || reduce) return;
+
+      var hero = document.getElementById('ahHero');
+      hero.classList.add('ah-anim');
+
+      gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.7 } })
+        .to('.ah-eyebrow',  { opacity: 1, y: 0 }, 0)
+        .to('.ah-headline', { opacity: 1, y: 0 }, 0.12)
+        .to('.ah-sub',      { opacity: 1, y: 0 }, 0.26)
+        .to('.ah-divider',  { scaleX: 1, duration: 0.6 }, 0.38)
+        .to('.ah-cta',      { opacity: 1, y: 0 }, 0.46)
+        .to('.ah-tags',     { opacity: 1, y: 0 }, 0.6);
+
+      // 안전장치: 애니메이션이 어떤 이유로든 멈춰도 히어로가 빈 화면으로 남지 않는다.
+      setTimeout(revealNow, 2500);
+    });
+  })();
   </script>
 
 
