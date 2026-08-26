@@ -67,7 +67,7 @@ img { max-width: 100%; }
   .mobile-quicknav a {
     flex-shrink: 0;
     padding: 15px 13px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.2px;
     color: var(--muted);
@@ -107,14 +107,14 @@ header .wrap {
 }
 
 .brand .mark {
-  font-size: 21px;
+  font-size: 22.5px;
   font-weight: 800;
   letter-spacing: 1px;
   color: var(--gold);
 }
 
 .brand .sub {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   font-weight: 400;
 }
@@ -129,7 +129,7 @@ header nav > a,
 .nav-item > a {
   text-decoration: none;
   padding: 8px 16px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.8px;
   color: #47474d;
@@ -167,7 +167,7 @@ header nav a.nav-cta:hover {
 
 .nav-item > a::after {
   content: "▾";
-  font-size: 11px;
+  font-size: 12.5px;
   margin-left: 4px;
   color: #9a9aa0;
 }
@@ -198,7 +198,7 @@ header nav a.nav-cta:hover {
 .dropdown a {
   display: block;
   padding: 10px 14px;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 2px;
   text-decoration: none;
   color: #3a3a40;
@@ -233,7 +233,7 @@ header nav a.nav-cta:hover {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
@@ -242,7 +242,7 @@ header nav a.nav-cta:hover {
 }
 
 .hero h1 {
-  font-size: 44px;
+  font-size: 46px;
   font-weight: 700;
   letter-spacing: -0.5px;
   line-height: 1.4;
@@ -251,7 +251,7 @@ header nav a.nav-cta:hover {
 }
 
 .hero.small h1 {
-  font-size: 30px;
+  font-size: 32px;
 }
 
 .hero h1 span {
@@ -259,7 +259,7 @@ header nav a.nav-cta:hover {
 }
 
 .hero .lead {
-  font-size: 17px;
+  font-size: 18.5px;
   color: var(--muted);
   max-width: 580px;
   margin: 0 auto 36px;
@@ -279,7 +279,7 @@ header nav a.nav-cta:hover {
   padding: 15px 30px;
   border-radius: 2px;
   text-decoration: none;
-  font-size: 15.5px;
+  font-size: 17px;
   font-weight: 700;
   transition: transform 0.15s, box-shadow 0.15s, background 0.15s, color 0.15s;
 }
@@ -328,7 +328,7 @@ header nav a.nav-cta:hover {
 }
 
 .trust-bar .item {
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 1.2px;
   text-transform: uppercase;
@@ -367,7 +367,7 @@ section.tight {
 }
 
 .section-tag {
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 700;
   color: var(--gold);
   letter-spacing: 2.5px;
@@ -376,7 +376,7 @@ section.tight {
 }
 
 section h2 {
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 800;
   letter-spacing: -0.5px;
   margin-bottom: 14px;
@@ -385,7 +385,7 @@ section h2 {
 
 section .desc {
   color: var(--muted);
-  font-size: 15.5px;
+  font-size: 17px;
 }
 
 .bg-card { background: var(--card); }
@@ -394,7 +394,7 @@ section .desc {
 /* ===== 텍스트 본문(회사소개 등) ===== */
 .prose p {
   color: #3a3f4a;
-  font-size: 15.5px;
+  font-size: 17px;
   margin-bottom: 18px;
 }
 
@@ -406,7 +406,7 @@ section .desc {
   margin-top: 28px;
   padding-top: 20px;
   border-top: 1px solid var(--line);
-  font-size: 13.5px;
+  font-size: 15.5px;
   color: var(--muted);
 }
 
@@ -439,19 +439,19 @@ section .desc {
 .point .n {
   font-weight: 800;
   color: var(--gold);
-  font-size: 15px;
+  font-size: 16.5px;
   flex-shrink: 0;
 }
 
 .point .t {
-  font-size: 15px;
+  font-size: 16.5px;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 4px;
 }
 
 .point .d {
-  font-size: 13.5px;
+  font-size: 15.5px;
   color: var(--muted);
 }
 
@@ -492,14 +492,14 @@ section .desc {
 .card .num {
   display: block;
   font-weight: 300;
-  font-size: 32px;
+  font-size: 34px;
   color: var(--gold);
   margin-bottom: 18px;
   line-height: 1;
 }
 
 .card h3 {
-  font-size: 17.5px;
+  font-size: 19px;
   font-weight: 700;
   margin-bottom: 10px;
   color: var(--ink);
@@ -507,14 +507,14 @@ section .desc {
 }
 
 .card p {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted);
 }
 
 .card .more {
   display: inline-block;
   margin-top: 16px;
-  font-size: 13.5px;
+  font-size: 15.5px;
   font-weight: 700;
   color: var(--gold);
 }
@@ -539,20 +539,20 @@ section .desc {
   flex-shrink: 0;
   width: 56px;
   font-weight: 300;
-  font-size: 32px;
+  font-size: 34px;
   color: var(--gold);
   line-height: 1;
 }
 
 .service-row h3 {
-  font-size: 18px;
+  font-size: 19.5px;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 8px;
 }
 
 .service-row p {
-  font-size: 15px;
+  font-size: 16.5px;
   color: #3a3f4a;
 }
 
@@ -565,7 +565,7 @@ section .desc {
 }
 
 .care-nav a {
-  font-size: 12.5px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.3px;
   padding: 8px 16px;
@@ -599,7 +599,7 @@ section .desc {
 }
 
 .care-head .eng {
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 700;
   letter-spacing: 2px;
   color: var(--gold);
@@ -607,7 +607,7 @@ section .desc {
 }
 
 .care-head h2 {
-  font-size: 24px;
+  font-size: 25.5px;
   font-weight: 800;
   color: var(--ink);
   margin: 0;
@@ -615,7 +615,7 @@ section .desc {
 
 .care-desc {
   color: var(--muted);
-  font-size: 14.5px;
+  font-size: 16.5px;
   margin-bottom: 28px;
   max-width: 640px;
 }
@@ -658,7 +658,7 @@ section .desc {
   text-align: center;
   padding: 16px;
   color: var(--muted);
-  font-size: 12.5px;
+  font-size: 14px;
 }
 
 .photo-slot-empty code {
@@ -667,7 +667,7 @@ section .desc {
   padding: 2px 8px;
   border-radius: 2px;
   color: var(--ink);
-  font-size: 12px;
+  font-size: 13.5px;
 }
 
 .photo-slot.empty .photo-slot-empty {
@@ -688,14 +688,14 @@ section .desc {
 }
 
 .case-head h3 {
-  font-size: 18px;
+  font-size: 19.5px;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 6px;
 }
 
 .case-head p {
-  font-size: 13.5px;
+  font-size: 15.5px;
   color: var(--muted);
 }
 
@@ -732,7 +732,7 @@ section .desc {
   justify-content: center;
   text-align: center;
   padding: 4px;
-  font-size: 9.5px;
+  font-size: 11px;
   line-height: 1.3;
   color: var(--muted);
 }
@@ -743,7 +743,7 @@ section .desc {
 
 /* ===== CERAGEM 7가지 케어 (제품안내 히어로) ===== */
 .ceragem-label {
-  font-size: 13.5px;
+  font-size: 15.5px;
   font-weight: 600;
   color: var(--muted);
   margin-bottom: 14px;
@@ -765,7 +765,7 @@ section .desc {
 }
 
 .ceragem-item .en {
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 700;
   letter-spacing: 0.8px;
   color: var(--gold);
@@ -774,7 +774,7 @@ section .desc {
 }
 
 .ceragem-item .kr {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--ink);
 }
@@ -826,7 +826,7 @@ section .desc {
   justify-content: center;
   text-align: center;
   padding: 4px;
-  font-size: 10px;
+  font-size: 11.5px;
   line-height: 1.3;
   color: var(--muted);
 }
@@ -842,12 +842,12 @@ section .desc {
 .lineup-item .name {
   font-weight: 700;
   color: var(--ink);
-  font-size: 15.5px;
+  font-size: 17px;
   margin-bottom: 6px;
 }
 
 .lineup-item .desc {
-  font-size: 13.5px;
+  font-size: 15.5px;
   color: var(--muted);
   max-width: 620px;
 }
@@ -866,7 +866,7 @@ section .desc {
 }
 
 .care-links a {
-  font-size: 12.5px;
+  font-size: 14px;
   font-weight: 600;
   padding: 8px 16px;
   border: 1px solid var(--line);
@@ -901,20 +901,20 @@ section .desc {
 }
 
 .product-block .product-head h3 {
-  font-size: 20px;
+  font-size: 21.5px;
   color: var(--ink);
   margin-bottom: 6px;
 }
 
 .product-block .product-head p {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted);
   max-width: 560px;
 }
 
 .badge {
   display: inline-block;
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.5px;
   padding: 5px 12px;
@@ -947,7 +947,7 @@ section .desc {
 .compare-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13.5px;
+  font-size: 15.5px;
 }
 
 .compare-table th, .compare-table td {
@@ -976,7 +976,7 @@ section .desc {
 }
 
 .model-notes .row {
-  font-size: 14px;
+  font-size: 16px;
   color: #3a3f4a;
 }
 
@@ -1003,18 +1003,18 @@ section .desc {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 23.5px;
   color: var(--gold);
 }
 
 .empty-state h3 {
-  font-size: 17px;
+  font-size: 18.5px;
   color: var(--ink);
   margin-bottom: 8px;
 }
 
 .empty-state p {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted);
 }
 
@@ -1030,7 +1030,7 @@ section .desc {
 .notice-table th, .notice-table td {
   padding: 14px 18px;
   text-align: left;
-  font-size: 14px;
+  font-size: 16px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -1038,7 +1038,7 @@ section .desc {
   background: var(--bg-alt);
   color: var(--muted);
   font-weight: 700;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 /* 절차 스텝 (고객지원 페이지) */
@@ -1074,13 +1074,13 @@ section .desc {
 }
 
 .step h3 {
-  font-size: 15.5px;
+  font-size: 17px;
   color: var(--ink);
   margin-bottom: 6px;
 }
 
 .step p {
-  font-size: 13.5px;
+  font-size: 15.5px;
   color: var(--muted);
 }
 
@@ -1111,7 +1111,7 @@ section .desc {
 }
 
 .contact-item .label {
-  font-size: 12.5px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--gold);
   letter-spacing: 0.5px;
@@ -1120,7 +1120,7 @@ section .desc {
 }
 
 .contact-item .value {
-  font-size: 15.5px;
+  font-size: 17px;
   color: var(--ink);
 }
 
@@ -1142,7 +1142,7 @@ footer {
   color: var(--muted);
   text-align: center;
   padding: 32px 0;
-  font-size: 13px;
+  font-size: 15px;
   border-top: 1px solid var(--line);
 }
 
@@ -1211,7 +1211,7 @@ footer .foot-brand {
     border-radius: 1px;
   }
   .nav-toggle-text {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 700;
     color: var(--ink);
   }
@@ -1292,7 +1292,7 @@ footer .foot-brand {
     padding: 92px 0 68px;
   }
   .hero h1 {
-    font-size: 30px;
+    font-size: 32px;
   }
   section {
     padding: 64px 0;
