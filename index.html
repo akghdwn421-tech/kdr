@@ -447,8 +447,15 @@
 
       // 영상을 갱신할 때는 ?v= 뒤 숫자를 올린다.
       // 안 올리면 재방문자 브라우저가 예전 영상을 계속 재생한다.
-      var VER = '3';
+      var VER = '4';
       v.src = (window.innerWidth >= 768 ? 'images/hero-loop.mp4' : 'images/hero-loop-sm.mp4') + '?v=' + VER;
+
+      // 영상 끝 1.6초를 시작 1.6초와 겹쳐 이음새를 없앴기 때문에,
+      // 0초 지점은 실사에서 테크놀로지로 넘어가는 구간이다.
+      // 첫 재생만 테크놀로지가 온전히 보이는 지점에서 시작한다.
+      v.addEventListener('loadedmetadata', function () {
+        try { v.currentTime = 1.6; } catch (e) {}
+      }, { once: true });
       v.addEventListener('canplay', function () {
         var pr = v.play();
         if (pr && pr.catch) pr.catch(function () {});
