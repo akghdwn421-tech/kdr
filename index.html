@@ -208,7 +208,17 @@
   .ah-anim .ah-divider { transform: scaleX(0); }
 
   @media (max-width: 767px) {
-    .ah-hero { min-height: 560px; }
+    /* 모바일에서는 헤더(75px)와 퀵메뉴(59px)가 히어로 위에 얹히기 때문에
+       히어로까지 화면 전체 높이를 쓰면 아래가 잘린다.
+       내용 높이에 여백만 더해 잡아 작은 화면에서도 한 번에 다 보이게 한다. */
+    .ah-hero {
+      height: auto;
+      min-height: 0;
+      padding: 68px 0 76px;
+    }
+    .ah-stage {
+      height: auto;
+    }
     .ah-eyebrow { font-size: 12.5px; letter-spacing: 0.1em; margin-bottom: 14px; }
     .ah-tags { font-size: 12px; margin-top: 26px; letter-spacing: 0.02em; }
     .ah-cta .btn { padding: 13px 22px; font-size: 15px; }
