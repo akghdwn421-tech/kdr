@@ -100,8 +100,8 @@
     text-wrap:balance;margin:10px 0 0;
   }
   .lead{
-    margin:14px 0 0;max-width:60ch;
-    font-size:15.5px;color:var(--ink-2);
+    margin:14px 0 0;max-width:58ch;
+    font-size:16.5px;color:var(--ink-2);
   }
   .lead b{color:var(--ink);font-weight:600}
 
@@ -113,7 +113,7 @@
     padding:8px;
   }
   .scroller{overflow-x:auto;overflow-y:hidden}
-  .diagram{display:block;width:100%;min-width:820px;height:auto}
+  .diagram{display:block;width:100%;min-width:560px;height:auto}
   .hint{
     display:none;
     font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
@@ -125,8 +125,8 @@
   /* svg type */
   .diagram text{font-family:"Pretendard",-apple-system,"Malgun Gothic",sans-serif}
   .n-card{fill:var(--surface);stroke:var(--line-2);stroke-width:1.25}
-  .n-title{fill:var(--ink);font-size:26px;font-weight:700;letter-spacing:-.01em}
-  .n-sub{fill:var(--ink-3);font-size:13px;font-weight:400}
+  .n-title{fill:var(--ink);font-size:30px;font-weight:700;letter-spacing:-.01em}
+  .n-sub{fill:var(--ink-3);font-size:15px;font-weight:400}
   .rail{fill:var(--accent)}
   .wm{color:var(--crg)}
   .fl-money{stroke:var(--accent);stroke-width:2.25;fill:none}
@@ -134,21 +134,22 @@
   .fl-svc{stroke:var(--service);stroke-width:2.75;fill:none}
   .leader{stroke:var(--line-2);stroke-width:1;fill:none}
   .chip{fill:var(--surface);stroke:var(--line-2);stroke-width:1}
-  .chip-label{fill:var(--ink);font-size:15px;font-weight:600}
-  .chip-sub{fill:var(--ink-3);font-size:12px}
-  .idx{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;font-weight:600;letter-spacing:.06em}
+  .chip-label{fill:var(--ink);font-size:17px;font-weight:600}
+  .chip-sub{fill:var(--ink-3);font-size:13.5px}
+  .idx{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;font-weight:600;letter-spacing:.06em}
   .idx-money{fill:var(--accent)}
   .idx-doc{fill:var(--doc)}
   .idx-svc{fill:var(--service)}
 
   /* ---------- legend ---------- */
   .flows{border-top:1px solid var(--line)}
+  .flows-head{margin:0;padding:20px 2px 6px;font-size:13px;color:var(--ink-3);letter-spacing:.01em}
   .flow{
     display:grid;
-    grid-template-columns:44px 200px 1fr;
+    grid-template-columns:46px 210px 1fr;
     gap:4px 20px;
     align-items:baseline;
-    padding:18px 2px;
+    padding:22px 2px;
     border-bottom:1px solid var(--line);
   }
   .flow .no{
@@ -156,14 +157,14 @@
     font-size:12px;font-weight:600;letter-spacing:.06em;
     font-variant-numeric:tabular-nums;
   }
-  .flow .what{font-size:16px;font-weight:600;letter-spacing:-.01em}
+  .flow .what{font-size:17.5px;font-weight:600;letter-spacing:-.01em}
   .flow .who{
     grid-column:2;
-    font-size:12.5px;color:var(--ink-3);
+    font-size:13.5px;color:var(--ink-3);
     display:flex;align-items:center;gap:7px;flex-wrap:wrap;
   }
   .flow .who i{font-style:normal;color:var(--ink-2);font-weight:500}
-  .flow .why{grid-column:3;grid-row:1 / span 2;font-size:14.5px;color:var(--ink-2);max-width:48ch}
+  .flow .why{grid-column:3;grid-row:1 / span 2;font-size:15.5px;line-height:1.75;color:var(--ink-2);max-width:56ch}
   .flow[data-kind="money"] .no{color:var(--accent)}
   .flow[data-kind="doc"] .no{color:var(--doc)}
   .flow[data-kind="svc"] .no{color:var(--service)}
@@ -177,7 +178,7 @@
     padding:16px 18px;
     border-radius:0 3px 3px 0;
   }
-  .note p{margin:0;font-size:14px;color:var(--ink-2)}
+  .note p{margin:0;font-size:15px;line-height:1.75;color:var(--ink-2)}
   .note strong{color:var(--ink);font-weight:600}
   .note .tag{
     font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
@@ -238,84 +239,92 @@
   <section class="plate" aria-label="거래 구조 다이어그램">
     <p class="hint">← 좌우로 밀어서 전체 보기</p>
     <div class="scroller">
-      <svg class="diagram" viewBox="0 0 1040 570" role="img"
-           aria-label="고객, 총판 사업자 엠스파인, 세라젬 본사 사이의 대금·증빙·설치 흐름 구조도">
+      <svg class="diagram" viewBox="0 0 800 880" role="img"
+           aria-label="위에서부터 고객, 총판 사업자 엠스파인, 세라젬 본사 순으로 놓인 거래 흐름 구조도">
 
-        <!-- ========== flows ========== -->
-        <!-- 01 대량매입 : 엠스파인 → 세라젬 -->
-        <line class="fl-money" x1="348" y1="459" x2="452" y2="459"/>
-        <line class="fl-money" x1="588" y1="459" x2="690" y2="459" marker-end="url(#ar-money)"/>
-        <!-- 02 입금 : 고객 → 엠스파인 -->
-        <line class="fl-money" x1="450" y1="146" x2="230" y2="396" marker-end="url(#ar-money)"/>
-        <!-- 03 증빙 : 엠스파인 → 고객 -->
-        <line class="fl-doc" x1="214" y1="392" x2="434" y2="142" marker-end="url(#ar-doc)"/>
-        <!-- 04 설치·A/S·계약 : 세라젬 → 고객 -->
-        <line class="fl-svc" x1="780" y1="396" x2="612" y2="142" marker-end="url(#ar-svc)"/>
+        <!-- ================= flows ================= -->
+        <!-- 01 입금 : 고객 → 엠스파인 (아래 방향) -->
+        <line class="fl-money" x1="438" y1="170" x2="438" y2="344" marker-end="url(#ar-money)"/>
+        <!-- 02 증빙 : 엠스파인 → 고객 (위 방향) -->
+        <line class="fl-doc" x1="502" y1="344" x2="502" y2="170" marker-end="url(#ar-doc)"/>
+        <!-- 03 대량매입 : 엠스파인 → 세라젬 (아래 방향) -->
+        <line class="fl-money" x1="470" y1="498" x2="470" y2="680" marker-end="url(#ar-money)"/>
+        <!-- 04 설치·A/S·계약서 : 세라젬 → 고객 (왼쪽 큰 곡선) -->
+        <path class="fl-svc" d="M340 745 C 160 745, 76 690, 76 430 C 76 180, 160 110, 340 110"
+              marker-end="url(#ar-svc)"/>
 
         <!-- leaders -->
-        <line class="leader" x1="270" y1="262" x2="330" y2="256"/>
-        <line class="leader" x1="756" y1="258" x2="702" y2="266"/>
+        <line class="leader" x1="418" y1="248" x2="434" y2="248"/>
+        <line class="leader" x1="522" y1="248" x2="506" y2="248"/>
+        <line class="leader" x1="496" y1="588" x2="474" y2="588"/>
+        <line class="leader" x1="96" y1="532" x2="80" y2="534"/>
 
-        <!-- ========== nodes ========== -->
-        <rect class="n-card" x="400" y="34" width="260" height="104" rx="4"/>
-        <text class="n-title" x="530" y="82" text-anchor="middle">고객</text>
-        <text class="n-sub" x="530" y="108" text-anchor="middle">법인 · 개인사업자 · 기관</text>
+        <!-- ================= nodes ================= -->
+        <!-- 고객 -->
+        <rect class="n-card" x="340" y="40" width="260" height="112" rx="4"/>
+        <text class="n-title" x="470" y="92" text-anchor="middle">고객</text>
+        <text class="n-sub" x="470" y="122" text-anchor="middle">법인 · 개인사업자 · 기관</text>
 
-        <rect class="n-card" x="40" y="400" width="300" height="118" rx="4"/>
-        <rect class="rail" x="40" y="400" width="300" height="3.5" rx="1.75"/>
-        <text class="n-title" x="190" y="454" text-anchor="middle">엠스파인</text>
-        <text class="n-sub" x="190" y="480" text-anchor="middle">세라젬 공식 총판 사업자</text>
+        <!-- 엠스파인 (총판) -->
+        <rect class="n-card" x="340" y="352" width="260" height="128" rx="4"/>
+        <rect class="rail" x="340" y="352" width="260" height="4" rx="2"/>
+        <text class="n-title" x="470" y="414" text-anchor="middle">엠스파인</text>
+        <text class="n-sub" x="470" y="444" text-anchor="middle">세라젬 공식 총판 사업자</text>
 
-        <rect class="n-card" x="700" y="400" width="300" height="118" rx="4"/>
-        <svg class="wm" x="770" y="428" width="160" height="26.37" viewBox="0 0 1000 164.80">
+        <!-- 세라젬 -->
+        <rect class="n-card" x="340" y="688" width="260" height="128" rx="4"/>
+        <svg class="wm" x="380" y="720" width="180" height="29.66" viewBox="0 0 1000 164.80">
           <use href="#crg-wordmark"/>
         </svg>
-        <text class="n-sub" x="850" y="484" text-anchor="middle">제조 · 계약 · 설치 · A/S 주체</text>
+        <text class="n-sub" x="470" y="784" text-anchor="middle">제조 · 계약 · 설치 · A/S 주체</text>
 
-        <!-- ========== labels ========== -->
-        <!-- 01 -->
-        <rect class="chip" x="460" y="441" width="120" height="36" rx="3"/>
-        <text class="idx idx-money" x="474" y="464">01</text>
-        <text class="chip-label" x="500" y="464">대량매입</text>
+        <!-- ================= labels ================= -->
+        <!-- 01 입금 (왼쪽) -->
+        <rect class="chip" x="256" y="218" width="162" height="62" rx="3"/>
+        <text class="idx idx-money" x="272" y="246">01</text>
+        <text class="chip-label" x="302" y="246">입금</text>
+        <text class="chip-sub" x="272" y="268">고객 → 엠스파인</text>
 
-        <!-- 02 / 03 : 고객 ↔ 총판 -->
-        <rect class="chip" x="30" y="204" width="240" height="118" rx="3"/>
-        <line class="fl-money" x1="46" y1="238" x2="70" y2="238"/>
-        <text class="idx idx-money" x="78" y="243">02</text>
-        <text class="chip-label" x="104" y="243">입금</text>
-        <text class="chip-sub" x="104" y="263">고객 → 엠스파인</text>
-        <line class="fl-doc" x1="46" y1="285" x2="70" y2="285"/>
-        <text class="idx idx-doc" x="78" y="290">03</text>
-        <text class="chip-label" x="104" y="290" style="font-size:13.5px">세금계산서 · 현금영수증</text>
-        <text class="chip-sub" x="104" y="310">엠스파인 → 고객</text>
+        <!-- 02 증빙 (오른쪽) -->
+        <rect class="chip" x="522" y="218" width="240" height="62" rx="3"/>
+        <text class="idx idx-doc" x="538" y="246">02</text>
+        <text class="chip-label" x="568" y="246" style="font-size:15.5px">세금계산서 · 현금영수증</text>
+        <text class="chip-sub" x="538" y="268">엠스파인 → 고객</text>
 
-        <!-- 04 -->
-        <rect class="chip" x="756" y="228" width="210" height="64" rx="3"/>
-        <text class="idx idx-svc" x="772" y="256">04</text>
-        <text class="chip-label" x="798" y="256">설치 · A/S · 계약서</text>
-        <text class="chip-sub" x="772" y="277">세라젬 본사 직접 수행</text>
+        <!-- 03 대량매입 (오른쪽) -->
+        <rect class="chip" x="496" y="558" width="180" height="62" rx="3"/>
+        <text class="idx idx-money" x="512" y="586">03</text>
+        <text class="chip-label" x="542" y="586">대량매입</text>
+        <text class="chip-sub" x="512" y="608">엠스파인 → 세라젬</text>
+
+        <!-- 04 설치·A/S·계약서 (왼쪽 곡선) -->
+        <rect class="chip" x="96" y="502" width="222" height="62" rx="3"/>
+        <text class="idx idx-svc" x="112" y="530">04</text>
+        <text class="chip-label" x="142" y="530">설치 · A/S · 계약서</text>
+        <text class="chip-sub" x="112" y="552">세라젬 본사 → 고객 직접</text>
       </svg>
     </div>
   </section>
 
   <section class="flows" aria-label="거래 흐름 상세">
+    <p class="flows-head">위에서 아래로, 화살표 4개가 각각 무엇을 뜻하는지</p>
     <div class="flow" data-kind="money">
       <span class="no">01</span>
-      <span class="what">대량매입</span>
-      <span class="who">엠스파인 <i>→</i> 세라젬</span>
-      <p class="why">총판 사업자가 세라젬 본사로부터 제품을 대량으로 매입합니다. 도입 수량이 커질수록 매입 단가가 내려가고, 그만큼 고객 공급가에 반영됩니다.</p>
-    </div>
-    <div class="flow" data-kind="money">
-      <span class="no">02</span>
       <span class="what">입금</span>
       <span class="who">고객 <i>→</i> 엠스파인</span>
       <p class="why">고객은 세라젬 본사가 아닌 총판 사업자에게 대금을 입금합니다. 결제 창구가 한 곳으로 정리됩니다.</p>
     </div>
     <div class="flow" data-kind="doc">
-      <span class="no">03</span>
+      <span class="no">02</span>
       <span class="what">세금계산서 · 현금영수증</span>
       <span class="who">엠스파인 <i>→</i> 고객</span>
       <p class="why">지출증빙은 입금을 받은 총판 사업자가 발행합니다. 법인·개인사업자 모두 비용 처리가 가능합니다.</p>
+    </div>
+    <div class="flow" data-kind="money">
+      <span class="no">03</span>
+      <span class="what">대량매입</span>
+      <span class="who">엠스파인 <i>→</i> 세라젬</span>
+      <p class="why">총판 사업자가 세라젬 본사로부터 제품을 대량으로 매입합니다. 도입 수량이 커질수록 매입 단가가 내려가고, 그만큼 고객 공급가에 반영됩니다.</p>
     </div>
     <div class="flow" data-kind="svc">
       <span class="no">04</span>
